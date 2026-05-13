@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Proyectos</title>
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  <link rel="stylesheet" href="style.css">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body class="scrollable">
+  <video autoplay loop muted playsinline class="back-vid">
+    <source src="img/galaxy.mp4" type="video/mp4">
+  </video>
+
+  <section class="main-section">
+    <nav>
+      <!-- EDITAR: Cambia el nombre/logo -->
+      <h1><span style="color: #4acfee;">Nathaly</span>Bravo</h1>
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="Habilidades.html">Habilidades</a></li>
+        <li><a class="active" href="proyectos.html">Proyectos</a></li>
+        <li><a href="intereses.html">Intereses</a></li>
+      </ul>
+    </nav>
+
+    <div class="page-header" data-aos="fade-down" data-aos-duration="1000">
+      <h1>Mis Proyectos</h1>
+      <p>Trabajos y proyectos académicos y personales</p>
+    </div>
+
+    <div class="projects-section">
+      <div class="projects-grid">
+
+        <!-- =============================================
+             EDITAR: Copia un bloque .project-card completo
+             para agregar más proyectos
+             ============================================= -->
+
+        <!-- PROYECTO 1 -->
+        <div class="project-card" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
+          <!-- EDITAR: Nombre del proyecto -->
+          <h3>Métodos Numéricos - Web</h3>
+          <!-- EDITAR: Descripción del proyecto -->
+          <p>Página web interactiva para visualizar y aplicar métodos numéricos de análisis matemático como bisección, Newton-Raphson, entre otros.</p>
+          <!-- EDITAR: Tecnologías usadas (agrega o elimina <span class="tag">) -->
+          <div class="project-tags">
+            <span class="tag">HTML</span>
+            <span class="tag">CSS</span>
+            <span class="tag">JavaScript</span>
+          </div>
+          <!-- EDITAR: Reemplaza href="#" con el enlace real de GitHub y/o demo -->
+          <div class="project-links">
+            <a href="#" class="project-link" target="_blank">
+              <i class='bx bxl-github'></i> Código
+            </a>
+            <a href="#" class="project-link" target="_blank">
+              <i class='bx bx-link-external'></i> Demo
+            </a>
+          </div>
+        </div>
+
+
+        <!-- Agrega más proyectos aquí siguiendo el mismo patrón de arriba -->
+
+      </div>
+    </div>
+  </section>
+
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>AOS.init();</script>
+</body>
+</html>

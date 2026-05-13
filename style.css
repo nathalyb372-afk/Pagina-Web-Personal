@@ -1,0 +1,597 @@
+/* =============================================
+   RESET
+   ============================================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* =============================================
+   BODY
+   min-height en lugar de height fija:
+   el body crece con su contenido y permite scroll
+   ============================================= */
+body {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  overflow-y: auto;
+  display: flex;
+  padding: 30px 0 50px;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+/* =============================================
+   VIDEO DE FONDO
+   position: fixed + object-fit: cover cubre
+   toda la pantalla sin importar la proporción,
+   y se mantiene estático al hacer scroll
+   ============================================= */
+.back-vid {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  object-fit: cover;
+}
+
+/* =============================================
+   MARCO GLASSMORPHIC PRINCIPAL
+   height: auto    → crece con el contenido
+   min-height      → siempre ocupa la pantalla
+   display: flex   → los hijos pueden usar flex-grow
+   ============================================= */
+.main-section {
+  width: 90%;
+  height: auto;
+  min-height: 85vh;
+  background-color: #4ad0ee1b;
+  backdrop-filter: blur(10px);
+  border-radius: 50px;
+  box-shadow: 5px 5px 20px 1px #4acfee;
+  display: flex;
+  flex-direction: column;
+}
+
+/* =============================================
+   NAVEGACIÓN
+   flex-wrap permite que los links pasen a la
+   siguiente línea en lugar de desaparecer
+   ============================================= */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 40px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+nav h1 {
+  color: white;
+  font-size: clamp(20px, 2.5vw, 30px);
+  font-weight: 900;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  justify-content: flex-end;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-size: clamp(13px, 1.5vw, 20px);
+  font-weight: bold;
+  transition: 0.2s;
+  padding: 5px clamp(10px, 1.5vw, 25px);
+}
+
+nav a:hover,
+.active {
+  color: #4acfee;
+  text-decoration: underline;
+}
+
+/* =============================================
+   HERO (página inicio)
+   flex: 1 toma todo el espacio libre restante
+   del marco → el contenido queda centrado
+   flex-wrap permite apilar en pantallas pequeñas
+   ============================================= */
+.hero {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  padding: 20px 10%;
+  color: white;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.hero-info {
+  flex: 1;
+  min-width: 0;
+}
+
+/* clamp(min, preferido, max) → tipografía fluida */
+.hero h1 {
+  font-size: clamp(2rem, 4.5vw, 3.75rem);
+  line-height: 1.1;
+}
+
+.hero h2 {
+  margin-top: 20px;
+  font-size: clamp(1rem, 2vw, 1.875rem);
+  text-transform: uppercase;
+  background: linear-gradient(to right, #4acfee, #53f8c9, #6070fd, #5bbdff, #4acfee);
+  background-size: 200%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: animate-gradient 2.5s linear infinite;
+}
+
+.hero p {
+  max-width: 450px;
+  margin-top: 7px;
+  margin-bottom: 20px;
+  line-height: 1.6;
+  font-size: clamp(13px, 1.2vw, 16px);
+}
+
+@keyframes animate-gradient {
+  to { background-position: 200%; }
+}
+
+/* =============================================
+   BOTONES Y REDES SOCIALES
+   flex-wrap evita desbordamiento en móvil
+   ============================================= */
+.Buttons {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+.btn {
+  display: inline-block;
+  padding: clamp(10px, 1.5vh, 15px) clamp(18px, 2vw, 30px);
+  background-color: #4acfee;
+  border: 2px solid #4acfee;
+  border-radius: 40px;
+  box-shadow: 0 0 10px #4acfee;
+  font-size: clamp(13px, 1.1vw, 16px);
+  font-weight: 900;
+  color: #0e1217;
+  cursor: pointer;
+  transition: 0.3s;
+  text-wrap: nowrap;
+  text-decoration: none;
+}
+
+.btn:hover {
+  background-color: transparent;
+  box-shadow: none;
+  color: #4acfee;
+}
+
+.ul-icons {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.ul-icons li {
+  list-style: none;
+}
+
+.ul-icons a {
+  display: inline-flex;
+  padding: 8px;
+  border: 2px solid #4acfee;
+  border-radius: 50%;
+  font-size: 20px;
+  color: #4acfee;
+  text-decoration: none;
+  margin: 4px 7px;
+  transition: 0.3s;
+}
+
+.ul-icons a:hover {
+  background: #4acfee;
+  color: #0e1217;
+  box-shadow: 0 0 10px #4acfee;
+}
+
+/* =============================================
+   IMAGEN DE PERFIL
+   clamp() escala suavemente entre pantallas
+   flex-shrink: 0 evita que se aplaste
+   ============================================= */
+.hero-img {
+  width: clamp(220px, 30vw, 400px);
+  height: clamp(220px, 30vw, 400px);
+  flex-shrink: 0;
+  position: relative;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+  box-shadow: 0 0 10px #4eddfd;
+  transition: 0.5s;
+}
+
+.hero-img:hover {
+  box-shadow: 0 0 25px #4acfee;
+}
+
+.hero-img img {
+  position: absolute;
+  width: 85%;
+  mix-blend-mode: lighten;
+}
+
+/* =============================================
+   TARJETAS DE ESTADÍSTICAS (inicio)
+   flex-wrap + justify space-between las distribuye
+   y las apila si no hay espacio
+   ============================================= */
+.info-sec {
+  display: flex;
+  width: 100%;
+  gap: 20px;
+  padding: 10px 10% 30px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.info-card {
+  display: flex;
+  align-items: center;
+}
+
+.info-sec h1 {
+  font-size: clamp(2rem, 3.5vw, 3.4rem);
+  text-transform: uppercase;
+  background: linear-gradient(to right, #4acfee, #53f8c9, #6070fd, #5bbdff, #4acfee);
+  background-size: 200%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: animate-gradient 2.5s linear infinite;
+  margin-right: 10px;
+}
+
+.info-sec p {
+  color: white;
+  font-size: clamp(14px, 1.5vw, 20px);
+}
+
+/* =============================================
+   PÁGINAS DE CONTENIDO
+   body.scrollable ya no agrega comportamiento
+   especial porque todos los body son fluidos
+   ============================================= */
+body.scrollable {
+  align-items: flex-start;
+}
+
+/* =============================================
+   ENCABEZADO DE PÁGINAS INTERNAS
+   ============================================= */
+.page-header {
+  text-align: center;
+  padding: clamp(20px, 3vh, 30px) 10% clamp(15px, 2vh, 20px);
+  color: white;
+}
+
+.page-header h1 {
+  font-size: clamp(1.8rem, 4vw, 3.125rem);
+  background: linear-gradient(to right, #4acfee, #53f8c9, #6070fd, #5bbdff, #4acfee);
+  background-size: 200%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: animate-gradient 2.5s linear infinite;
+  margin-bottom: 8px;
+}
+
+.page-header p {
+  color: rgba(255,255,255,0.7);
+  font-size: clamp(14px, 1.5vw, 18px);
+}
+
+/* =============================================
+   SECCIÓN HABILIDADES
+   auto-fill + minmax → columnas fluidas
+   min(280px, 100%) → nunca desborda en móvil
+   ============================================= */
+.skills-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(280px, 100%), 1fr));
+  gap: 25px;
+  padding: 20px 5% 40px;
+}
+
+.skill-category {
+  background: rgba(74, 207, 238, 0.08);
+  border: 1px solid rgba(74, 207, 238, 0.3);
+  border-radius: 20px;
+  padding: 25px;
+  transition: 0.3s;
+}
+
+.skill-category:hover {
+  box-shadow: 0 0 15px rgba(74, 207, 238, 0.3);
+}
+
+.skill-category h3 {
+  color: #4acfee;
+  margin-bottom: 20px;
+  font-size: clamp(14px, 1.5vw, 18px);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.skill-item {
+  margin-bottom: 15px;
+}
+
+.skill-name {
+  color: white;
+  font-size: 14px;
+  margin-bottom: 6px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.skill-bar-bg {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  height: 8px;
+  overflow: hidden;
+}
+
+.skill-bar-fill {
+  height: 100%;
+  background: linear-gradient(to right, #4acfee, #53f8c9);
+  border-radius: 10px;
+}
+
+.soft-skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 5px;
+}
+
+.soft-skill-tag {
+  background: rgba(74, 207, 238, 0.15);
+  color: #4acfee;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 13px;
+  border: 1px solid rgba(74, 207, 238, 0.35);
+}
+
+/* =============================================
+   SECCIÓN PROYECTOS
+   ============================================= */
+.projects-section {
+  padding: 20px 5% 40px;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(280px, 100%), 1fr));
+  gap: 25px;
+}
+
+.project-card {
+  background: rgba(74, 207, 238, 0.08);
+  border: 1px solid rgba(74, 207, 238, 0.3);
+  border-radius: 20px;
+  padding: 25px;
+  transition: 0.3s;
+  display: flex;
+  flex-direction: column;
+}
+
+.project-card:hover {
+  box-shadow: 0 0 20px rgba(74, 207, 238, 0.4);
+  transform: translateY(-5px);
+}
+
+.project-card h3 {
+  color: #4acfee;
+  font-size: 20px;
+  margin-bottom: 12px;
+}
+
+.project-card p {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 14px;
+  line-height: 1.6;
+  margin-bottom: 15px;
+  flex-grow: 1;
+}
+
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 18px;
+}
+
+.tag {
+  background: rgba(74, 207, 238, 0.15);
+  color: #4acfee;
+  padding: 3px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  border: 1px solid rgba(74, 207, 238, 0.35);
+}
+
+.project-links {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.project-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 8px 16px;
+  border: 1px solid #4acfee;
+  border-radius: 20px;
+  color: #4acfee;
+  text-decoration: none;
+  font-size: 13px;
+  transition: 0.3s;
+}
+
+.project-link:hover {
+  background: #4acfee;
+  color: #0e1217;
+  box-shadow: 0 0 10px #4acfee;
+}
+
+/* =============================================
+   SECCIÓN INTERESES
+   ============================================= */
+.interests-section {
+  padding: 20px 5% 40px;
+}
+
+.interests-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(200px, 100%), 1fr));
+  gap: 25px;
+}
+
+.interest-card {
+  background: rgba(74, 207, 238, 0.08);
+  border: 1px solid rgba(74, 207, 238, 0.3);
+  border-radius: 20px;
+  padding: clamp(20px, 3vh, 30px) 20px;
+  text-align: center;
+  transition: 0.3s;
+}
+
+.interest-card:hover {
+  box-shadow: 0 0 20px rgba(74, 207, 238, 0.4);
+  transform: translateY(-8px);
+}
+
+.interest-card i {
+  font-size: clamp(32px, 4vw, 45px);
+  color: #4acfee;
+  margin-bottom: 15px;
+  display: block;
+}
+
+.interest-card h3 {
+  color: white;
+  font-size: clamp(14px, 1.5vw, 16px);
+  margin-bottom: 10px;
+}
+
+.interest-card p {
+  color: rgba(255, 255, 255, 0.65);
+  font-size: clamp(11px, 1.1vw, 13px);
+  line-height: 1.5;
+}
+
+/* =============================================
+   RESPONSIVE - TABLETS (≤ 768px)
+   ============================================= */
+@media (max-width: 768px) {
+  body {
+    padding: 15px 0 30px;
+  }
+
+  .main-section {
+    width: 95%;
+    border-radius: 30px;
+  }
+
+  nav {
+    padding: 15px 20px;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  nav ul {
+    justify-content: center;
+  }
+
+  .hero {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    gap: 20px;
+  }
+
+  .hero-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hero p {
+    max-width: 100%;
+  }
+
+  .Buttons {
+    justify-content: center;
+  }
+
+  .hero-img {
+    width: clamp(200px, 55vw, 300px);
+    height: clamp(200px, 55vw, 300px);
+  }
+
+  .info-sec {
+    justify-content: center;
+    gap: 25px 40px;
+    padding-bottom: 25px;
+  }
+
+  .info-card {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .info-sec h1 {
+    margin-right: 0;
+    margin-bottom: 5px;
+  }
+}
+
+/* =============================================
+   RESPONSIVE - MÓVILES (≤ 480px)
+   ============================================= */
+@media (max-width: 480px) {
+  .main-section {
+    border-radius: 20px;
+  }
+
+  nav a {
+    font-size: 12px;
+    padding: 4px 8px;
+  }
+}

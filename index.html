@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mi Portfolio</title>  <!-- EDITAR: Pon tu nombre aquí -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  <link rel="stylesheet" href="style.css">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+  <video autoplay loop muted playsinline class="back-vid">
+    <source src="img/galaxy.mp4" type="video/mp4">
+  </video>
+
+  <section class="main-section">
+    <nav>
+      <!-- EDITAR: Cambia el nombre/logo que aparece en la barra de navegación -->
+      <h1 data-aos="zoom-in" data-aos-duration="1000">
+        <span style="color: #4acfee;">Nathaly</span>Bravo
+      </h1>
+      <ul>
+        <li data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
+          <a class="active" href="index.html">Inicio</a>
+        </li>
+        <li data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+          <a href="Habilidades.html">Habilidades</a>
+        </li>
+        <li data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
+          <a href="proyectos.html">Proyectos</a>
+        </li>
+        <li data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
+          <a href="intereses.html">Intereses</a>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="hero">
+      <div class="hero-info">
+        <!-- EDITAR: Cambia el saludo con tu nombre -->
+        <h1 data-aos="fade-right" data-aos-duration="1000" data-aos-delay="700">
+          Hola, soy Nathaly 
+        </h1>
+        <!-- EDITAR: Tu carrera o rol -->
+        <h2 data-aos="fade-left" data-aos-duration="1000" data-aos-delay="900">
+          Estudiante de Ingeniería en Ciencias de la Computación 
+        </h2>
+        <!-- EDITAR: Una breve descripción sobre ti -->
+        <p data-aos="flip-down" data-aos-duration="1000" data-aos-delay="1000">
+          Apasionada por la tecnología,
+          redes de computadoras, los sistemas distribuidos y la inteligencia artificial.
+          Actualmente estoy cursando quinto semestre en la EPN. Creo fielmente que ante
+          lo desconocido, la clave esta en investigar, aprender y resolver.
+        </p>
+        <div class="Buttons">
+          <!-- EDITAR: Reemplaza TU-USUARIO con tu username de GitHub -->
+          <a href="https://github.com/nathalyb372-afk" target="_blank"
+             class="btn" data-aos="zoom-in-right" data-aos-duration="1000" data-aos-delay="1100">
+            Ver GitHub
+          </a>
+          <ul class="ul-icons">
+            <!-- EDITAR: Pon el enlace de tu GitHub -->
+            <li>
+              <a href="https://github.com/nathalyb372-afk" target="_blank"
+                 data-aos="fade-up" data-aos-duration="1000" data-aos-delay="1200">
+                <i class='bx bxl-github'></i>
+              </a>
+            </li>
+            <!-- EDITAR: Pon el enlace de tu LinkedIn o elimina este <li> -->
+            <li>
+              <a href="https://www.linkedin.com/in/nathaly-bravo-316098363/" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="1300">
+                <i class='bx bxl-linkedin'></i>
+              </a>
+            </li>
+            <!-- EDITAR: Pon el enlace de tu Instagram o elimina este <li> -->
+            <li>
+              <a href="https://www.instagram.com/nathalyb372/" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="1400">
+                <i class='bx bxl-instagram'></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="hero-img" data-aos="zoom-in-left" data-aos-duration="2500">
+        <!-- EDITAR: Cambia man1.jpeg por el nombre de tu foto (debe estar en la carpeta img/) -->
+        <img src="img/man1.jpeg" alt="Foto de perfil">
+      </div>
+    </div>
+
+    <div class="info-sec">
+      <!-- EDITAR: Actualiza estos números con tu información real -->
+      <div class="info-card" data-aos="fade-in" data-aos-duration="1000" data-aos-delay="1600">
+        <h1>2+</h1>
+        <p>Años en <br> la EPN</p>
+      </div>
+      <div class="info-card" data-aos="fade-in" data-aos-duration="1000" data-aos-delay="1700">
+        <h1>4+</h1>
+        <p>Lenguajes <br> aprendidos</p>
+      </div>
+      <div class="info-card" data-aos="fade-in" data-aos-duration="1000" data-aos-delay="1800">
+        <h1>+</h1>
+        <p>Proyectos <br> completados</p>
+      </div>
+      <div class="info-card" data-aos="fade-in" data-aos-duration="1000" data-aos-delay="1900">
+        <h1>EPN</h1>
+        <p>Escuela <br> Politécnica Nacional</p>
+      </div>
+    </div>
+  </section>
+
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>AOS.init();</script>
+</body>
+</html>
